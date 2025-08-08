@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Aspect Ratio Image</title>
+    <style>
+        .responsive-image-container {
+            /* Default 16:9 aspect ratio */
+            width: 100%;
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 = 0.5625) */
+            overflow: hidden;
+        }
+        
+        .responsive-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures entire image is visible */
+            background-color: #f0f0f0; /* Fallback color */
+        }
+        
+        /* Change to 4:3 aspect ratio on mobile */
+        @media (max-width: 767px) {
+            .responsive-image-container {
+                padding-top: 75%; /* 4:3 Aspect Ratio (3/4 = 0.75) */
+            }
+            
+            /* Optional: Add letterboxing/pillarboxing to maintain composition */
+            .responsive-image {
+                object-fit: contain;
+                background-color: #000; /* For letterboxing effect */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="responsive-image-container">
+        <img src="https://dkprodimages.gumlet.io/Banner/Desktop%20Ramadan-011821449102.jpg" alt="Responsive image" class="responsive-image">
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/paymentDonateMonthly.css">
+</head>
+<body>
+    <div class="form-container">
+        
+        <form id="handlePayment">
+            <!-- Preferred Date Section -->
+            <div class="form-group">
+                <label class="form-label">
+                    Preferred Date <span class="info-icon" title="Select your preferred donation date">i</span>
+                </label>
+                <div class="date-selector">
+                    <select class="form-control" id="selectDate" required>
+                        <option value="" disabled selected>Select a date</option>
+                        <option value="1">1st of the month</option>
+                        <option value="2">2nd</option>
+                        <option value="3">3rd</option>
+                        <option value="4">4th</option>
+                        <option value="5">5th</option>
+                        <option value="6">6th</option>
+                        <option value="7">7th</option>
+                        <option value="8">8th</option>
+                        <option value="9">9th</option>
+                        <option value="10">10th</option>
+                        <option value="11">11th</option>
+                        <option value="12">12th</option>
+                        <option value="13">13th</option>
+                        <option value="14">14th</option>
+                        <option value="15">15th</option>
+                        <option value="16">16th</option>
+                        <option value="17">17th</option>
+                        <option value="18">18th</option>
+                        <option value="19">19th</option>
+                        <option value="20">20th</option>
+                        <option value="21">21st</option>
+                        <option value="22">22nd</option>
+                        <option value="23">23rd</option>
+                        <option value="24">24th</option>
+                        <option value="25">25th</option>
+                        <option value="26">26th</option>
+                        <option value="27">27th</option>
+                        <option value="28">28th</option>
+                        
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name" class="form-label">Full Name</label>
+                <div class="input-with-icon">
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                    <i class="fas fa-user" id="doName"></i>
+                </div>
+            </div>
+            
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <div class="input-with-icon">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <i class="fas fa-envelope" id="doEmail"></i>
+                </div>
+            </div>
+            
+            <!-- Phone Field -->
+            <div class="form-group">
+                <label for="phone" class="form-label">Phone Number</label>
+                <div class="input-with-icon">
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter your 10-digit mobile number" required>
+                    <i class="fas fa-phone-alt" id="doPhone"></i>
+                </div>
+            </div>
+            
+            <!-- Nationality Radio Buttons -->
+            <div class="form-group">
+                <label class="form-label">Nationality</label>
+                <div class="radio-group">
+                    <label class="radio-option">
+                        <input type="radio" name="nationality" value="indian" checked>
+                        I'm an Indian National
+                    </label>
+                    <label class="radio-option">
+                        <input type="radio" name="nationality" value="non-indian">
+                        I'm not an Indian National
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Checkbox Options -->
+            <div class="checkbox-group">
+                <div class="checkbox-option">
+                    <input type="checkbox" name="anonymous" id="anonymous" checked>
+                    <label for="anonymous">Make my donation anonymous</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" name="whatsapp" id="whatsapp" checked>
+                    <label for="whatsapp">I want to receive transaction and donation updates on WhatsApp</label>
+                </div>
+            </div>
+            
+            <!-- Terms and Conditions -->
+            <div class="terms">
+                By continuing, you are agreeing to our <a href="/terms-of-use" target="_blank">Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>
+            </div>
+            
+            <!-- Submit Button -->
+            <!-- <button type="submit" class="submit-btn">
+                Donate ₹1,000 per month
+            </button> -->
+            <div class="button-container">
+                <button  type="submit" class="submit-btn">
+                    <span class="btn-text">Donate ₹1,000 per month</span>
+                    <div class="loading-ring"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="./client/paymentDonateMonthly.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="./styles/login.css"> 
+</head>
+<body>
+    <div class="message" id="message"></div>
+    <div class="toast" id="toast"></div>
+
+    <div class="login-container">
+        <p class="logo">
+            Log in to YesDonate
+        </p>
+        
+        <form id="loginForm" onsubmit="handleForm(event)">
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <span class="toggle-password" onclick="togglePassword()">
+                    <i id="eyeIcon" class="fas fa-eye-slash"></i>
+                </span>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="submit">Login</button>
+            <p class="register-text">New here? <a href="./Signup.html">Register Now</a></p>
+        </form>
+    </div>
+
+
+    <script src="./client/login.js"></script>
+</body>
+</html>

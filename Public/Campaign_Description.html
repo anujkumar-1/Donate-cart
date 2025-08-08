@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Surkuti - A Beacon of Hope</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/campaignDescription.css">
+</head>
+<body>
+    <div class="dot-pulse-container" id="spinner">
+        <div class="dot-pulse"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign" class="highlighted">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+            <li><a href="./Donation_Monthly" class="highlighted">Donate Monthly</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                  <a href="./Login">Login</a>
+                  <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+           
+            <div class="dropdown">
+                <button class="dropdown-btn"></button>
+                <div class="dropdown-content">
+                  <a href="./My_Profile">My Profile</a>
+                  <a href="./My_Fundraiser">My Fundraiser</a>
+                  <a href="./My_Transaction">My Transaction</a>
+                  <a href="#">Logout</a>
+                </div>
+            </div>
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <button type="button" id="menu-button"></button>
+            </div>
+            
+            <!-- Slider Menu -->
+            <div class="slider-menu" id="sliderMenu">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <div class="menu-items">
+                    <a href="#">Explore Campaign</a>
+                    <a href="#">Start a Campaign</a>
+                    <a href="#">Donate Monthly</a>
+                    <a href="#">Login/Sign Up</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                    <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                    <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                    <a href="./Login" id="logout" class="slider-option">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="hamburger">&#9776;</button>
+    </nav>
+
+
+    <h1 class="story-title"></h1>
+
+    <div class="donate-container" id="donateContainer">
+        <div class="donation-options" id="donationOptions">
+            <h3 style="margin-bottom: 15px; text-align: center;">Select Donation Amount</h3>
+            
+            <div class="amount-options">
+                <div class="amount-option" data-amount="1000">&#8377; 1000</div>
+                <div class="amount-option" data-amount="1500">&#8377; 1500</div>
+                <div class="amount-option" data-amount="3000">&#8377; 3000</div>
+            </div>
+            
+            <input type="number" class="custom-amount" id="customAmount" placeholder="Or enter custom amount">
+        </div>
+
+        <button class="donate-button" id="donateButton">
+            DONATE NOW
+            <span class="donate-amount" id="donateAmount"></span>
+        </button>
+    </div>
+
+    <div class="container" id="container">
+        <!-- Left Side - Donation Form Goes here-->
+        <div class="campaign-story" id="campaignStory">
+            
+        </div>
+
+
+        <!--  right hand side payment start here  -->
+
+        <div class="donation-section">
+            <div class="badges">
+                <div class="badge">
+                    <i class="fas fa-check"></i>
+                    Tax Benefit
+                </div>
+                <div class="badge assured">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjMzMzMgNC4zMzMzM0w2IDExLjY2NjZMMi42NjY2NyA4LjMzMzMzIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K" alt="Check">
+                    Assured
+                </div>
+                <div class="badge children">
+                    Children
+                </div>
+            </div>
+            
+            
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="amountRaised">₹4,75,000 <span>raised</span></span>
+                    <span>Goal:  <span id="campaignGoal">₹10,70,000</span></span>
+                </div>
+            </div>
+            
+            <div class="amount-buttons">
+                <button class="amount-btn">₹1,100</button>
+                <button class="amount-btn most-donated active">
+                    <span class="most-donated-label">Most Donated</span>
+                    ₹1,500
+                </button>
+                <button class="amount-btn">₹3,000</button>
+                <button class="amount-btn">Enter Amount</button>
+            </div>
+            
+            <div class="custom-amount">
+                <select class="currency-select">
+                    <option value="inr">INR</option>
+                    <option value="usd">USD</option>
+                    <option value="eur">EUR</option>
+                    <option value="gbp">GBP</option>
+                </select>
+                <input type="number" class="amount-input" placeholder="Enter Amount" value="1500">
+            </div>
+
+            <div class="donate-via">
+                <h3 class="section-title">DONATE VIA:</h3>
+                
+                <h4 class="section-title" id="payment">UPI</h4>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/PhonePeUpi.svg" alt="PhonePe">
+                        </div>
+                        <span class="payment-name" id="payment2">PhonePe</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/GPay.svg" alt="Google Pay">
+                        </div>
+                        <span class="payment-name" id="payment3">Google Pay</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/download.svg" alt="BHIM UPI">
+                        </div>
+                        <span class="payment-name" id="payment4">BHIM UPI</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNGNkY2RjYiLz4KPGNpcmNsZSBjeD0iMTMuNSIgY3k9IjI0LjUiIHI9IjMuNSIgZmlsbD0iYmxhY2siLz4KPGNpcmNsZSBjeD0iMjQuNSIgY3k9IjI0LjUiIHI9IjMuNSIgZmlsbD0iYmxhY2siLz4KPGNpcmNsZSBjeD0iMzUuNSIgY3k9IjI0LjUiIHI9IjMuNSIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==" alt="Others">
+                        </div>
+                        <span class="payment-name" id="payment5">Others</span>
+                    </div>
+                </div>
+                
+                <h4 class="section-title" id="payment10">OTHER OPTIONS</h4>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/paytm.svg" alt="Paytm">
+                        </div>
+                        <span class="payment-name" id="payment6">Paytm</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/cards.svg" alt="Credit/Debit Cards">
+                        </div>
+                        <span class="payment-name" id="payment7">Cr/Dr Cards</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/NetBanking.svg" alt="Net Banking">
+                        </div>
+                        <span class="payment-name" id="payment8">Net Banking</span>
+                    </div>
+                    <div class="payment-option">
+                        <div class="payment-icon">
+                            <img src="./Assets/gift card.svg" alt="Gift Cards">
+                        </div>
+                        <span class="payment-name" id="payment9">Gift Cards</span>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <button class="donate-btn">
+                <span>₹1,500</span>
+                <span>Donate Now <i class="fas fa-arrow-right"></i></span>
+            </button>
+
+            
+            <div class="share-buttons">
+                <button class="share-btn facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+           
+
+                <button class="share-btn twitter">
+                    <i class="fab fa-twitter"></i>
+                </button>
+                <button class="share-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </button>
+                <button class="share-btn link">
+                    <i class="fas fa-link"></i>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- FAQ -->
+
+    <div class="faq-container">
+        <h1 class="faq-title">Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What is YesDonate?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                YesDonate is India's one of a kind crowdfunding platform that allows donors to directly donate towards products that are required by the NGO. In the last 5 years, we have partnered with 1400+ NGOs all over India to raise 150+ crores worth of products. More than 5 lakh unique donors have used our platform to donate to charities of their choice. As a donor, you are guaranteed 100% transparency - after you donate towards the products, you will receive an update from the campaigner.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How to claim Tax-Exemption for my contributions on YesDonate?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>After you complete your donation successfully, you will find the <span class="highlight">'GET 80G'</span> button on the payment success page. Please fill in your PAN number, complete address, and name as per PAN and submit. Your 80G certificate will be generated and sent via email within 24 hours.</p>
+                <p>Alternatively, you can get your 80G receipt in a few simple steps:</p>
+                <ol>
+                    <li>Log in to your account using the same email ID you used for the donation</li>
+                    <li>Go to <span class="highlight">'My Donations'</span></li>
+                    <li>Choose the financial year for which you'd like the donation certificate</li>
+                    <li>Click on <span class="highlight">'Download 80G Certificate'</span></li>
+                    <li>Fill out the Form (if required)</li>
+                    <li>Submit the form and 80G will get downloaded instantly</li>
+                </ol>
+                <p>Instead of receiving separate 80G certificates for each donation, you'll receive a consolidated 80G certificate via email covering all your donations made through our platform in the financial year. Further, The corresponding 10BE form that proves your eligibility for the tax deduction will also be consolidated. This way, you won't have to worry about multiple downloads and can save time.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How To Avail 10BE?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>To qualify for tax exemption on your donations, you need to obtain a 10BE. This can be done by filing your 80G claims for donations made during the Financial Year (FY). You can download your 10BE from the <span class="highlight">'My Profile'</span> section by 31st May of the next FY and also receive it via email.</p>
+                <p>For example: if you made donations between April 2023 and March 2024 (FY 2023-24), you will get your 10BE by 31st May 2024, provided you need to claim the 80G for these donations.</p>
+                <p>Please note that you cannot claim 80G for donations made between April 2022 and March 2023 (FY 2022-23) anymore as the window for claiming it has closed. However, you can still get the 10BEs for that year if you made 80G claims on or before 31st July 2023.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Why do we collect a tip amount?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Sometimes prices of the products change during the course of the campaign, we use these tips to cover the hike in prices and deliver the goods to NGOs.</p>
+                <p>Tip is a voluntary contribution towards our platform and donors can choose to give any amount as tips.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Are these NGOs verified?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                All these NGOs are registered and are highly reputed in their areas of service. You can visit them and talk to them in person if you desire. Please write into us at info@yesdonate.com and we'll provide you with all their contact details.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How do I know these products have reached the right beneficiary?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                At YesDonate, we value 100% trust and transparency. It is mandatory for NGOs to send updates to donors, once the campaign is completed. We request you to wait for a few days so that we can deliver the products to our NGO partners and they can distribute them to the needy. Within a month, you would see update(s) in the form of pictures or videos from the NGO in the 'Updates Tab' of the campaign you donated to.
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How to Donate?</span>
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                Choose a campaign on YesDonate close to your heart. Add products to cart and proceed to payment. Select your "currency" and complete the transaction. We have a secured payment gateway that allows you to pay through a wide range of secure payment options.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Subscribe Section -->
+            <div>
+                <h3>Subscribe Us</h3>
+                <p>Stay updated with our latest initiatives and campaigns.</p>
+                <div class="subscribe">
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <button onclick="subscribe()">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Our Impact -->
+            <div>
+                <h3>Our Impact</h3>
+                <p><strong>₹300+ Crore</strong> donations facilitated.</p>
+                <p><strong>15 Lakhs</strong> donor transactions.</p>
+                <p><strong>1400+ NGOs</strong> impacted across India.</p>
+            </div>
+
+            <!-- About -->
+            <div>
+                <h3>About YesDonate</h3>
+                <p>India’s most trusted and transparent crowdfunding platform, making giving easy and impactful.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">🔵</a>
+                    <a href="#" target="_blank">🐦</a>
+                    <a href="#" target="_blank">📸</a>
+                    <a href="#" target="_blank">💼</a>
+                    <a href="#" target="_blank">▶️</a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="#">About Us</a></p>
+                <p><a href="#">Start a Campaign</a></p>
+                <p><a href="#">Donate Monthly</a></p>
+                <p><a href="#">FAQs</a></p>
+                <p><a href="#">Blogs</a></p>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 5th Main Rd, HSR Layout, Bangalore, India</p>
+                <p>📞 <a href="tel:+918045685000">+91 8045685000</a></p>
+                <p>📧 <a href="mailto:info@yesdonate.com">info@yesdonate.com</a></p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 YesDonate | All rights reserved. <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="./client/campaignDescription.js"></script>
+</body>
+</html>

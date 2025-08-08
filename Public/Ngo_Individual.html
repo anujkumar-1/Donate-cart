@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <title>Fundraiser Form</title>
+    <link rel="stylesheet" href="./styles/ngoIndividual.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div>
+                <a href="./Donation_Monthly"><button class="donate-btn">Donate Monthly</button></a>
+            </div>
+
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                  <a href="./Login">Login</a>
+                  <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">Anuj Kumar</button>
+                <div class="dropdown-content">
+                  <a href="#">My Profile</a>
+                  <a href="#">My Fundraiser</a>
+                  <a href="#">My Transaction</a>
+                  <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        
+          <!-- Hamburger Menu Button -->
+          <div class="hamburger-menu" id="hamburgerMenu">
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <div class="hamburger-icon"></div>
+            <button type="button" id="menu-button">.</button>
+          </div>
+  
+        <!-- Slider Menu -->
+        <div class="slider-menu" id="sliderMenu">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="menu-items">
+                <a href="./Explore_Campaign">Explore Campaign</a>
+                <a href="./Start_Campaign">Start a Campaign</a>
+                <a href="./Donation_Monthly">Donate Monthly</a>
+                <a href="./Login">Login/Sign Up</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                <a href="./Login" id="logout" class="slider-option">Logout</a>
+            </div>
+        </div>
+        
+
+        <button class="hamburger">&#9776;</button>
+    </nav>
+
+
+    <div class="form-container">
+        <h2>NGO / Individual Details</h2>
+        <form id="fundraiserForm" onsubmit="handleEvent(event)">
+            <div class="input-group">
+                <select id="beneficiaryType" name="type" required>
+                    <option value="">----Choose----</option>
+                    <option value="Self">My Self</option>
+                    <option value="Individual">Individual Other than Self</option>
+                    <option value="NGO">NGO</option>
+                </select>
+                <label for="beneficiaryType">This fundraiser will benefit</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="name" name="name" required placeholder=" ">
+                <label for="name" id="nameLabel">Enter name</label>
+            </div>
+
+            <div class="input-group">
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                </select>
+                <label for="state">State</label>
+            </div>
+
+            <div class="input-group">
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                </select>
+                <label for="city">City</label>
+            </div>
+
+            <div class="input-group" id="input-group">
+                <input type="number" id="phone" name="phone"  placeholder=" ">
+                <label for="phone" id="phoneLabel">Enter mobile number</label>
+            </div>
+
+            <!-- <button type="submit">Continue</button> -->
+            <div class="button-container">
+                <button type="submit" class="submit-btn" onclick="submitForm()">
+                    <span class="btn-text">Continue</span>
+                    <div class="loading-ring"></div>
+                </button>
+            </div>
+        
+        </form>
+    </div>
+
+    <!-- video container -->
+
+
+    <div class="video-container">
+        <div class="video-modal">
+            <p class="video-description">How to Start a Campaign at Donatekart?</p>
+        </div>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/kMT-q12kaKk?si=s66pqR4QgSXB-1E0&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0"
+                title="How to Start a Campaign at Donatekart"
+                allow="autoplay; encrypted-media"
+                class="video-embed"
+            ></iframe>
+        </div>
+    </div>
+
+    <script src="./client/ngoIndividual.js"></script>
+</body>
+</html>

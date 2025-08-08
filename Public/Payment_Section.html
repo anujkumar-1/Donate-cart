@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/paymentSystem.css">
+</head>
+<body>
+    <div class="donation-form">
+        <!-- Support Us By Section -->
+        <div class="support-section">
+            <div class="support-header">
+                <p>By supporting our platform, you're helping us reach more campaigns and scale our impact.</p>
+                <div class="tip-selection">
+                    <p class="tip-label">Support us by:</p>
+                    <select class="tip-options" id="tipPercentage">
+                        <option value="12">12% (₹360)</option>
+                        <option value="14">14% (₹420)</option>
+                        <option value="16" selected="selected">16% (₹480)</option>
+                        <option value="0">Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Campaign Promotion Section -->
+        <div class="campaign-promotion">
+            <div class="campaign-header">
+                <h3><b>Urgent - </b>Help Women Stand On Their Own Feet</h3>
+            </div>
+            <div class="campaign-content">
+                <img src="https://dkprodimages.gumlet.io/campaign/cover/asha-chutni2017396755.jpg" alt="Campaign Image">
+                <div class="campaign-details">
+                    <h4>Branded As A W!tch By Her Family, Chutni Now Needs Your Help To Save Thousands From The Same Fate</h4>
+                    <div class="donation-options">
+                        <button type="button" class="amount-option" data-amount="300">₹300</button>
+                        <button type="button" class="amount-option" data-amount="500">₹500</button>
+                        <button type="button" class="amount-option" data-amount="1000">₹1000</button>
+                        <button type="button" class="amount-option custom-amount">
+                            <span>Enter Amount</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donation Form -->
+        <form class="donor-form" id="donationForm">
+            <div class="form-group">
+                <input type="text" id="donorName" name="name" required placeholder=" " >
+                <label for="donorName">Name</label>
+                <span class="input-icon"><i class="fas fa-user" id="doName"></i></span>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="donorEmail" name="email" required placeholder=" " >
+                <label for="donorEmail">Email ID</label>
+                <span class="input-icon"><i class="fas fa-envelope" id="doEmail"></i></span>
+            </div>
+
+            <div class="form-group phone-group">
+                <div class="country-code">
+                    <span class="flag-icon"></span>
+                    <select id="countryCode">
+                        <option value="+91">+91 (IN)</option>
+                        <option value="+1">+1 (US)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <option value="+971">+971 (UAE)</option>
+                    </select>
+                </div>
+                <div class="phone-input">
+                    <input type="tel"  id="donorPhone" name="phone" required placeholder=" " pattern="[0-9]{10}" >
+                    <label for="donorPhone">Mobile Number (10 digit)</label>
+                    <span class="input-icon"><i class="fas fa-phone-alt" id="doPhone"></i></span>
+                </div>
+            </div>
+
+            <div class="citizenship-options">
+                <div class="radio-option">
+                    <input type="radio" id="indian" name="nationality" value="indian" checked>
+                    <label for="indian">I'm An Indian National</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="nonIndian" name="nationality" value="nonIndian">
+                    <label for="nonIndian">I'm Not An Indian National</label>
+                </div>
+            </div>
+
+            <div class="checkbox-options">
+                <div class="checkbox-option">
+                    <input type="checkbox" id="anonymousDonation" name="anonymous" class="orange-checkbox">
+                    <label for="anonymousDonation">Make my donation anonymous</label>
+                </div>
+                
+                <div class="checkbox-option">
+                    <input type="checkbox" id="whatsappUpdates" name="whatsapp" class="orange-checkbox" >
+                    <label for="whatsappUpdates">I want to receive transaction and donation updates on WhatsApp</label>
+                </div>
+            </div>
+
+            <div class="terms-section">
+                <p>By continuing, you are agreeing to <a href="/terms-of-use" target="_blank">Terms of Use</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a></p>
+            </div>
+
+            <div class="payment-section">
+                <div class="payment-amount">
+                    <select class="currency-selector" id="currencySelector">
+                        <option value="inr">INR</option>
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="gbp">GBP</option>
+                        <option value="aed">AED</option>
+                    </select>
+                    <span class="amount-display" id="amountDisplay"></span>
+                </div>
+                <!-- <button type="submit" class="pay-button">Continue To Pay</button> -->
+                <div class="button-container">
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Continue To Pay</span>
+                        <div class="loading-ring"></div>
+                    </button>
+                </div>
+            
+            </div>
+        </form>
+    </div>
+
+    <script src="./client/paymentSection.js"></script>
+</body>
+</html>

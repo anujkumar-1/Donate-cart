@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Campaign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+  <link rel="stylesheet" href="./styles/createCampaign.css">
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar">
+      <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+      <ul class="nav-links">
+          <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+          <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+          <li><a href="./Donation_Monthly" class="highlighted">Donate Monthly</a></li>
+      </ul>
+      
+
+      <div class="nav-actions">
+          
+
+          <div class="user-dropdown">
+            <button class="user-btn">Join Us/Login</button>
+            <div class="dropdown-menu">
+              <a href="./Login">Login</a>
+              <a href="./Signup">Sign Up</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+              <button class="dropdown-btn">Anuj Kumar</button>
+              <div class="dropdown-content">
+                <a href="#">My Profile</a>
+                <a href="#">My Fundraiser</a>
+                <a href="#">My Transaction</a>
+                <a href="#">Logout</a>
+              </div>
+          </div>
+
+          
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu" id="hamburgerMenu">
+          <div class="hamburger-icon"></div>
+          <div class="hamburger-icon"></div>
+          <div class="hamburger-icon"></div>
+          <button type="button" id="menu-button">.</button>
+        </div>
+  
+        <!-- Slider Menu -->
+        <div class="slider-menu" id="sliderMenu">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="menu-items">
+                <a href="./Explore_Campaign">Explore Campaign</a>
+                <a href="./Start_Campaign">Start a Campaign</a>
+                <a href="./Donation_Monthly">Donate Monthly</a>
+                <a href="./Login">Login/Sign Up</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                <a href="./Login" id="logout" class="slider-option">Logout</a>
+            </div>
+        </div>
+      </div>
+
+      <button class="hamburger">&#9776;</button>
+  </nav>
+
+
+  <div class="form-container">
+    <h1>Create a Campaign</h1>
+    <form id="campaign-form" onsubmit="handleEvent(event)">
+      <!-- Campaign Photo Upload -->
+      <div class="form-group">
+        <div class="photo-upload">
+          <div class="preview" id="photo-preview">
+            <img src="./Assets/user.png" alt="Default User Icon" class="default-icon">
+          </div>
+          <input type="file" id="campaign-photo" accept="image/*" required>
+          <label for="campaign-photo">.</label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="campaignTitle">Campaign Title</label>
+        <input type="text" id="campaignTitle" name="campaignTitle" 
+               placeholder="e.g., Help Build a School for Underprivileged Children" required>
+    </div>
+    
+    
+    
+    <div class="form-group">
+        <label for="campaignSubheading">Campaign Subtitle</label>
+        <input type="text" id="campaignSubheading" name="campaignSubheading" 
+               placeholder="e.g., Join us in making quality education accessible to 500 children">
+    </div>
+    
+    <div class="form-group">
+        <label for="goalAmount">Total Goal Amount (₹)</label>
+        <input type="number" id="goalAmount" name="goalAmount" 
+               placeholder="e.g., 1000000" required>
+    </div>
+    
+    
+    
+    <div class="form-group">
+        <label for="campaignContent">Campaign Content</label>
+        <textarea id="campaignContent" name="campaignContent" 
+                  placeholder="Tell your story here... describe the problem, your solution, and the impact donors can make. 
+
+Example: 
+In rural villages across India, millions of children lack access to basic education. With your support, we can build a school that will serve 500 children, providing them with quality education and a pathway out of poverty. 
+
+Our plan:
+- Construct a 5-classroom school building
+- Hire qualified teachers
+- Provide textbooks and supplies
+- Offer midday meals to improve attendance"></textarea>
+    </div>
+    
+      
+        <!-- Submit Button -->
+        <!-- <button  class="submit-btn">Submit</button> -->
+        <div class="button-container">
+          <button type="submit" class="submit-btn" onclick="submitForm()">
+              <span class="btn-text">Continue</span>
+              <div class="loading-ring"></div>
+          </button>
+        </div>
+
+    </form>
+  </div>
+
+
+  <!-- youtube video  -->
+  <div class="video-container">
+      <div class="video-modal">
+          <p class="video-description">How to Start a Campaign at Donatekart?</p>
+      </div>
+      <div class="video-wrapper">
+          <iframe 
+              src="https://www.youtube.com/embed/kMT-q12kaKk?si=s66pqR4QgSXB-1E0&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0"
+              title="How to Start a Campaign at Donatekart"
+              allow="autoplay; encrypted-media"
+              class="video-embed"
+          ></iframe>
+      </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./client/createCampaign.js"></script>
+</body>
+</html>

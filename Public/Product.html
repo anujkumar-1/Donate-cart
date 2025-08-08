@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" href="./styles/product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+            <li><a href="./Donation_Monthly" class="highlighted">Donate Monthly</a></li>
+        </ul>
+
+        <div class="nav-actions">
+
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                  <a href="./Login">Login</a>
+                  <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">Anuj Kumar</button>
+                <div class="dropdown-content">
+                  <a href="#">My Profile</a>
+                  <a href="#">My Fundraiser</a>
+                  <a href="#">My Transaction</a>
+                  <a href="#">Logout</a>
+                </div>
+            </div>
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <button type="button" id="menu-button">.</button>
+            </div>
+        
+            <!-- Slider Menu -->
+            <div class="slider-menu" id="sliderMenu">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <div class="menu-items">
+                    <a href="./Explore_Campaign">Explore Campaign</a>
+                    <a href="./Start_Campaign">Start a Campaign</a>
+                    <a href="./Donation_Monthly">Donate Monthly</a>
+                    <a href="./Login">Login/Sign Up</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                    <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                    <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                    <a href="./Login" id="logout" class="slider-option">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="hamburger">&#9776;</button>
+    </nav>
+
+
+    <div class="home_card" id="homeCard">
+        <div>
+            <h3 class="header">Products</h3>
+            <form enctype="multipart/form-data" class="form_wrapper" data-gtm-form-interact-id="0">
+                <div class="combobox_wrapper" id="combo-box-wrapper">
+                    <input autocomplete="off" type="text" name="name" class="combobox_input" required placeholder="Product Name" id="combo-box-input" data-gtm-form-interact-field-id="0">
+                    <span class="combobox_arrow" id="combo-box-arrow-wrapper">
+                        <i class="combobox_arrow_icon" id="combo-box-arrow-i">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="combo-box-arrow-icon">
+                                <path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                            </svg>
+                        </i>
+                    </span>
+                    <div class="combobox_list" id="combo-box-list-group">
+                        <!-- Product items will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="form_product_wrapper">
+                    <div class="input_field">
+                        <input type="number" class="input_control" id="price" name="price" required placeholder=" " value="0">
+                        <label for="price" class="input_label">Price</label>
+                        <span class="input_icon"></span>
+                    </div>
+                    <div class="input_field">
+                        <input type="number" class="input_control" id="requiredQuantity" name="requiredQuantity" required placeholder=" " min=0>
+                        <label for="requiredQuantity" class="input_label">Required Quantity</label>
+                        <span class="input_icon"></span>
+                    </div>
+                </div>
+                <div class="input_field">
+                    <input type="text" class="input_control" id="description" name="description" placeholder=" ">
+                    <label for="description" class="input_label">Description</label>
+                    <span class="input_icon"></span>
+                </div>
+                <div class="form_btn_wrapper">
+                    <button type="button" class="btn_gradient">Save</button>
+                    <button type="button" class="btn_gradient btn_cancel" id="cancel-btn">Cancel</button>
+                    <div id="submit-section" style="display: none; margin-top: 20px;">
+                     <button id="final-submit-btn" class="submit-btn" type="submit">Submit Campaign</button>
+                        
+                    </div>
+                </div>
+            </form>
+            <!-- Product View -->
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit</th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="product-table-body">
+                    <!-- Products will be added here dynamically -->
+                </tbody>
+            </table>
+            
+            <div class="campaign-goal">
+                <h3>Set Your Campaign Goal</h3>
+                <div class="goal-input-container">
+                    <span>₹</span>
+                    <input type="number" class="goal-input" id="campaign-goal-input" placeholder="Enter amount">
+                    <button class="goal-submit-btn" id="goal-submit-btn">Set Goal</button>
+                </div>
+                <div class="success-message" id="success-message">
+                    Campaign goal set successfully!
+                </div>
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+    <!-- youtube video -->
+
+    <div class="video-container"  id="videoContainer">
+        <div class="video-modal">
+            <p class="video-description">How to Start a Campaign at Donatekart?</p>
+        </div>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/kMT-q12kaKk?si=s66pqR4QgSXB-1E0&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0"
+                title="How to Start a Campaign at Donatekart"
+                allow="autoplay; encrypted-media"
+                class="video-embed"
+            ></iframe>
+        </div>
+    </div>
+
+    <div class="submission-card" id="submissionCard">
+        <div class="checkmark"></div>
+        <h2>Campaign Submitted Successfully!</h2>
+        <p>Thank you for creating your campaign. Our team will review it shortly.</p>
+        
+        <div id="loadingState">
+            <div class="loading-text">
+                <span>Please wait while we are creating a campaign based on the data you provided...</span>
+                <div class="loading-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./client/product.js"></script>
+</body>
+</html>

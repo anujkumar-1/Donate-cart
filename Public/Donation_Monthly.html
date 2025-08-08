@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/donateMonthly.css">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+            <li><a href="./Donation_Monthly" class="highlighted">Donate Monthly</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                  <a href="./Login">Login</a>
+                  <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                    <button class="dropdown-btn"></button>
+                <div class="dropdown-content">
+                    <a href="./My_Profile">My Profile</a>
+                    <a href="./My_Fundraiser.html">My Fundraiser</a>
+                    <a href="./My_Transaction">My Transaction</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <button type="button" id="menu-button">.</button>
+            </div>
+  
+            <!-- Slider Menu -->
+            <div class="slider-menu" id="sliderMenu">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <div class="menu-items">
+                    <a href="./Explore_Campaign">Explore Campaign</a>
+                    <a href="./Start_Campaign">Start a Campaign</a>
+                    <a href="./Donation_Monthly">Donate Monthly</a>
+                    <a href="./Login">Login/Sign Up</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                    <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                    <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                    <a href="./Login" id="logout" class="slider-option">Logout</a>
+                </div>
+            </div>  
+    </div>
+
+        <button class="hamburger ">&#9776;</button>
+    </nav>
+    
+    <div class="container">
+        <h1>Make an Impact Every Month</h1>
+        <h2>Change lives with monthly donations. Donatekart's Social Investment
+         Plan creates impact every day. Join us to make a 
+         difference.
+        </h2>
+        <form id="donationForm">
+            <select id="campaign" required>
+                <option value="">Select Mission</option>
+                <option value="break-the-silence">Break the Silence</option>
+                <option value="save-indias-strays">Save India’s Strays</option>
+                <option value="end-elder-abuse">End Elder Abuse</option>
+                <option value="uplift-differently-abled">Uplift India’s Differently-Abled</option>
+                <option value="every-child-in-school">Every Child in School</option>
+            </select>
+            
+            <label for="amount"></label>
+            <input type="number" id="amount" name="amount" min="1" max="49999" placeholder="Enter any amount" required>
+            
+            <div class="amount-buttons">
+                <button type="button" class="preset-amount" data-value="1000">₹1000</button>
+                <button type="button" class="preset-amount active" data-value="3000">₹3000</button>
+                <button type="button" class="preset-amount" data-value="5000">₹5000</button>
+            </div>
+            <div class="button-container">
+                <button class="submit-btn" onclick="submitForm()">
+                    <span class="btn-text">Submit</span>
+                    <div class="loading-ring"></div>
+                </button>
+            </div>
+        </form>
+    </div>
+<script src="./client/donateMonthly.js"></script>
+</body>
+</html>

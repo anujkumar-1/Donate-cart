@@ -1,0 +1,738 @@
+body {
+    background-color: #e9f6fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* navbar */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f9f9f9;
+        padding-top: 70px; /* To prevent overlap with fixed navbar */
+    }
+
+    /* Navbar Styles */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        padding: 13px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+
+    /* Navbar Brand */
+    .navbar-brand {
+        font-size: 22px;
+        font-weight: bold;
+        color: #7B1113;
+        text-decoration: none;
+        font-family: "Oswald", sans-serif;
+    }
+
+    /* Nav Links */
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links li {
+        display: inline;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        padding: 8px 12px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #7B1113;
+    }
+
+
+
+     /* Donate Button */
+
+     .dropdown{
+            position: absolute;
+            right: 10px;
+            top: 6px;
+        }
+
+        .donate-btn {
+            position: absolute;
+            right: 150px;
+            top: 0px;
+            background: linear-gradient(45deg, #f12711, #f5af19);
+            position: relative;
+            border: none;
+            /* padding: 10px 15px; */
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .donate-btn:hover {
+            opacity: 0.8;
+        }
+
+        
+/* User Dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #7B1113;
+    color: white;
+}
+
+/* Show dropdown on hover */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+} 
+
+
+        /* Dropdown Button */
+
+        .dropdown{
+            display: none;
+        }
+
+        .dropdown-btn {
+        background-color: #e86a00;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+
+        .dropdown-btn:hover {
+        background-color: #45a049;
+        }
+
+        /* Dropdown Content */
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0px;
+        background-color: #fff;
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        }
+
+        /* Show Dropdown Menu */
+        .show {
+        display: block;
+        }
+
+
+    /* Highlighted Button */
+    .highlighted {
+        background-color: #7B1113;
+        color: white !important;
+        padding: 8px 15px;
+        border-radius: 5px;
+    }
+
+    .highlighted:hover {
+        background-color: #9b2b30;
+    }
+
+    /* Donate Button */
+    .donate-btn {
+        background: linear-gradient(45deg, #f12711, #f5af19);
+        border: none;
+        position: absolute;
+        top: 6px;
+        padding: 11px 15px;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .donate-btn:hover {
+        opacity: 0.8;
+    }
+
+    /* User Dropdown */
+    .user-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .user-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        padding: 8px 12px;
+        border: 1px solid orange;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        min-width: 150px;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        transition: 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+        background: #7B1113;
+        color: white;
+    }
+
+    /* Show dropdown on hover */
+    .user-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+
+
+
+/* Hamburger menu button for mobile*/
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+.hamburger-icon {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+#menu-button{
+    display: none;
+}
+/* Slider menu */
+.slider-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f8f8;
+    transition: 0.5s;
+    z-index: 99;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.slider-menu.active {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-items {
+    margin-top: 60px;
+}
+
+.menu-items a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-items a:hover {
+    background-color: #eee;
+}
+
+
+#profile, #fundraiser, #transaction, #logout{
+    display: none;
+}
+  
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+
+
+
+/* select campaign */
+
+        .cause_cardWrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: white;
+            margin-bottom: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cause_causeWrapper {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .cause_causeWrapper.cause_active {
+            background-color: #423b7d;
+            color: white;
+            width: 46%;
+            font-size: 18px;
+        }
+
+        .dk-select_selectWrapper {
+            position: relative;
+        }
+
+        .dk-select_select {
+            padding: 10px 30px 10px 10px;
+            font-size: 18px;
+            width: 131%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+        }
+
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 520px;
+    max-width: 90%;
+    margin-left: 50px;
+}
+
+/* Header */
+.form-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Input Fields */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #6c63ff;
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(90deg, #ff7400 28.12%, #f91717);;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background: #ff9400;
+}
+
+
+
+    /* video component */
+    .video-container {
+        width: 500px;
+        margin-left: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .video-modal {
+        padding: 10px 0;
+    }
+
+    .video-description {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        padding-top: 56.25%; /* Aspect ratio 16:9 */
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .video-embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+
+    .video-wrapper iframe{
+        height: 100%;
+    }
+
+
+
+    /* OTP */
+
+
+    .show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hidden {
+        display: none;
+    }
+    
+    .otp-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .otp-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    
+.otp-content h3 {
+    margin-bottom: 10px;
+}
+
+.otp-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.otp-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.otp-content button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background-color: red !important;
+}
+
+#timer-text {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#resend-otp {
+    background: none;
+    color: blue;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/* Submit button animation */
+
+.button-container {
+    position: relative;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 480px;
+    height: 50px;
+    background: linear-gradient(45deg, #f12711, #f5af19);
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-ring {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading .loading-ring {
+    display: block;
+}
+
+.loading .btn-text {
+    visibility: hidden;
+}
+
+@media (min-width: 310px) and (max-width: 768px) {
+    
+
+    .submit-btn{
+        width: 100%;
+    }
+
+    .form-container{
+        margin-left: 0px;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+    .dk-select_select {
+        width: 100%;
+    }
+
+    #menu-button{
+        background-color: orangered;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        color: #fff;
+        border: none;
+        margin-top: -10px
+    }
+    .campaign-item {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .campaign-image-container {
+      flex: 0 0 auto;
+      width: 100%;
+      height: 180px;
+    }
+
+    .promo-carousel-container{
+        display: none;
+    }
+    .campaign-ticker-container{
+    }
+    .user-dropdown{
+        display: none;
+    }
+    .hamburger{
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        margin-top: -10px;
+        margin-right: -10px;
+    }
+    .dropdown-btn{
+        display: none;
+    }
+
+}
+
+@media (max-width:1023px) {
+    .video-container{
+        display: none;
+    }
+}
+
+
+@media (min-width: 769px){
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+
+

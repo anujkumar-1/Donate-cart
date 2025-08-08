@@ -1,0 +1,521 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    background-image: url("../Assets/hungrychild.webp");
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #7B1113;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #7B1113;
+}
+
+/* Highlighted Button */
+.highlighted {
+    background-color: #7B1113;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.highlighted:hover {
+    background-color: #9b2b30;
+}
+
+/* Donate Button */
+
+.dropdown{
+    display: none;
+}
+
+.donate-btn {
+    position: absolute;
+    right: 150px;
+    background: linear-gradient(45deg, #f12711, #f5af19);
+    position: relative;
+    top: -10px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.donate-btn:hover {
+    opacity: 0.8;
+}
+
+
+
+/* User Dropdown */
+     
+/* User Dropdown */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 150px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #7B1113;
+    color: white;
+}
+
+/* Show dropdown on hover */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+} 
+
+    
+    
+
+/* Dropdown Button */
+.dropdown-btn {
+background-color: #e86a00;
+color: white;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+display: none;
+}
+
+
+
+/* Dropdown Content */
+.dropdown-content {
+display: none;
+position: absolute;
+right: 0px;
+background-color: #fff;
+min-width: 160px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+z-index: 1;
+}
+
+.dropdown-content:hover{
+    
+}
+
+.dropdown-btn:hover {
+    display: block;
+    background-color: #45a049;
+    }
+
+.dropdown-content a {
+color: #333;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {
+background-color: #f1f1f1;
+}
+
+/* Show Dropdown Menu */
+.show {
+display: block;
+}
+
+
+
+/* Hamburger menu button for mobile*/
+#menu-button{
+    display: none;
+}
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+.hamburger-icon {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Slider menu */
+.slider-menu {
+    position: fixed;
+    top: 0;
+    right: -120%;
+    width: 95%;
+    height: 100%;
+    background-color: #f8f8f8;
+    transition: 0.5s;
+    z-index: 99;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.slider-menu.active {
+    right: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-items {
+    margin-top: 60px;
+}
+
+.menu-items a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-items a:hover {
+    background-color: #eee;
+}
+
+
+#profile, #fundraiser, #transaction, #logout{
+    display: none;
+}
+  
+
+
+
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+h1{
+    text-transform: none;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 800;
+    margin-right: 16px;
+    margin-bottom: 0;
+}
+
+.container {
+    background: #423b7d;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    position: absolute;
+    right: 160px;
+}
+h2 {
+    letter-spacing: 0;
+    font-size: 17px;
+    font-weight: 200;
+    margin-bottom: 24px;
+    color: #ccc;
+}
+
+#campaign {
+    width: 100%;
+    color: #ff7400;
+    font-weight: 500;
+    border-radius: 4px;
+    padding: 15px 12px;
+    border: 1px solid #ff7400;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+input {
+    width: 95%;
+    padding: 15px 12px;
+    margin-bottom: 24px;
+}
+
+.colour-btn{
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.user-dropdown{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+
+.donate-monthly {
+    width: 100%;
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.donate-monthly {
+    background:linear-gradient(90deg, #ff7400 28.12%, #f91717);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 15px 12px;
+    
+}
+
+.preset-amount:hover {
+    background: #ff7400;
+    color: white;
+}
+.amount-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+.amount-buttons button {
+    width: 29%;
+    background: transparent;
+    color: #ddd;
+    border: 1px solid #fff;
+    padding: 16px 0px;
+}
+.amount-buttons button.active {
+    background-color: #fff;
+    color: #ff7400;
+}
+
+/* Submit Button Animation */
+
+.button-container {
+    position: relative;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 50px;
+    background: linear-gradient(45deg, #f12711, #f5af19);
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.loading-ring {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading .loading-ring {
+    display: block;
+}
+
+.loading .btn-text {
+    visibility: hidden;
+}
+
+
+@media (min-width: 300px) and (max-width: 768px){
+    .container{
+        background: #423b7d;
+        padding: 40px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        width: 80%;
+        right: 10px;
+        margin-top: 7rem;
+
+    }
+    .submit-btn{
+        width: 100%;
+    }
+
+    .nav-links{
+        display: none;
+    }
+    .user-dropdown{
+        display: none;
+    }
+
+    .campaign-item {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .campaign-image-container {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 180px;
+      }
+  
+      .promo-carousel-container{
+          display: none;
+      }
+      .campaign-ticker-container{
+      }
+      .user-dropdown{
+          display: none;
+      }
+      .hamburger{
+          display: none;
+      }
+      .hamburger-menu {
+          display: block;
+          margin-top: -10px;
+          margin-right: -10px;
+      }
+      .donate-btn{
+          display:none
+      }
+
+      #menu-button{
+        background-color: orangered;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        color: #fff;
+        border: none;
+        margin-top: -10px
+     }
+
+      .navbar{
+        height: 60px;
+      }
+}
+
+
+
+
+
+@media (min-width: 769px){
+    .hamburger-menu {
+        display: none;
+    }
+}

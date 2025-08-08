@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Navbar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./styles/exploreCampaign.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+            <li><a href="./Donation_Monthly">Donate Monthly</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                    <a href="./Login">Login</a>
+                    <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+    
+            <div class="dropdown">
+                <button class="dropdown-btn"></button>
+                <div class="dropdown-content">
+                <a href="./My_Profile">My Profile</a>
+                <a href="./My_Fundraiser.html">My Fundraiser</a>
+                <a href="./My_Transaction">My Transaction</a>
+                <a href="#">Logout</a>
+                </div>
+            </div>
+
+             <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <button type="button" id="menu-button">.</button>
+
+            </div>
+  
+            <!-- Slider Menu -->
+            <div class="slider-menu" id="sliderMenu">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <div class="menu-items">
+                    <a href="./Explore_Campaign">Explore Campaign</a>
+                    <a href="./Start_Campaign">Start a Campaign</a>
+                    <a href="./Donation_Monthly">Donate Monthly</a>
+                    <a href="./Login">Login/Sign Up</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                    <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                    <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                    <a href="./Login" id="logout" class="slider-option">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="hamburger">&#9776;</button>
+    </nav>
+
+
+    <!-- banner -->
+
+    <div class="explore-campaigns_banner">
+        <img src="./Assets/banner.webp" alt="Donatekart Banner">
+    </div>
+
+    
+    <!-- Search bar -->
+    <div class="search-container">
+        <form action="" class="search-campaigns" id="searchCampaigns">
+            <div class="search-bar">
+                <div class="search-input-container">
+                    <input type="text" name="search" class="search-input" id="search-input">
+                    <span id="clearSearch" class="clear-btn">×</span>
+                    <div class="placeholder-animation" id="dynamic-placeholder"></div>
+                </div>
+                <button type="button" class="search-button">
+                    <i class="fas fa-search search-icon"></i>
+                </button>
+            </div>
+        </form>
+        <ul id="results"></ul>
+      </div>
+  
+
+    <!-- Campaign Cards -->
+    <div class="campaign-main">
+        
+        <div class="campaign-card">
+            <div class="campaign-image">
+                <img src="./Assets/Help-Ditej-Save-Strays.webp" alt="Campaign">
+                <span class="tax-benefit">Tax Benefit</span>
+            </div>
+            <div class="campaign-details">
+                <h4 class="campaign-title">She Waited For 12 Years Yet Can’t Save Her Newborn</h4>
+                <p class="campaign-author">By B/O Madhuri Valmik Kotkar</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p class="campaign-stats">₹1,40,898 Raised - 164 Backers</p>
+            </div>
+            <div class="campaign-actions">
+                <button class="share-btn">Share</button>
+                <a href="#" class="donate-btn">Donate Now</a>
+            </div>
+        </div>
+
+
+    <!-- 2 -->
+
+    
+        <div class="campaign-card">
+            <div class="campaign-image">
+                <img src="./Assets/Help-Manju-for-Help-Innocent.webp" alt="Campaign">
+                <span class="tax-benefit">Tax Benefit</span>
+            </div>
+            <div class="campaign-details">
+                <h4 class="campaign-title">She Waited For 12 Years Yet Can’t Save Her Newborn</h4>
+                <p class="campaign-author">By B/O Madhuri Valmik Kotkar</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p class="campaign-stats">₹1,40,898 Raised - 164 Backers</p>
+            </div>
+            <div class="campaign-actions">
+                <button class="share-btn">Share</button>
+                <a href="#" class="donate-btn">Donate Now</a>
+            </div>
+        </div>
+    
+
+
+    <!-- 3 -->
+
+    
+        <div class="campaign-card">
+            <div class="campaign-image">
+                <img src="./Assets/Donatekart-to-Surkuti.webp" alt="Campaign">
+                <span class="tax-benefit">Tax Benefit</span>
+            </div>
+            <div class="campaign-details">
+                <h4 class="campaign-title">She Waited For 12 Years Yet Can’t Save Her Newborn</h4>
+                <p class="campaign-author">By B/O Madhuri Valmik Kotkar</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p class="campaign-stats">₹1,40,898 Raised - 164 Backers</p>
+            </div>
+            <div class="campaign-actions">
+                <button class="share-btn">Share</button>
+                <a href="#" class="donate-btn">Donate Now</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Subscribe Section -->
+            <div>
+                <h3>Subscribe Us</h3>
+                <p>Stay updated with our latest initiatives and campaigns.</p>
+                <div class="subscribe">
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <button onclick="subscribe()">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Our Impact -->
+            <div>
+                <h3>Our Impact</h3>
+                <p><strong>₹300+ Crore</strong> donations facilitated.</p>
+                <p><strong>15 Lakhs</strong> donor transactions.</p>
+                <p><strong>1400+ NGOs</strong> impacted across India.</p>
+            </div>
+
+            <!-- About -->
+            <div>
+                <h3>About Donatekart</h3>
+                <p>India’s most trusted and transparent crowdfunding platform, making giving easy and impactful.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">🔵</a>
+                    <a href="#" target="_blank">🐦</a>
+                    <a href="#" target="_blank">📸</a>
+                    <a href="#" target="_blank">💼</a>
+                    <a href="#" target="_blank">▶️</a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="#">About Us</a></p>
+                <p><a href="#">Start a Campaign</a></p>
+                <p><a href="#">Donate Monthly</a></p>
+                <p><a href="#">FAQs</a></p>
+                <p><a href="#">Blogs</a></p>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 5th Main Rd, HSR Layout, Bangalore, India</p>
+                <p>📞 <a href="tel:+918045685000">+91 8045685000</a></p>
+                <p>📧 <a href="mailto:info@donatekart.com">info@donatekart.com</a></p>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 Donatekart | All rights reserved. <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+
+    <script src="./client/exploreCampaign.js"></script>
+</body>
+</html>

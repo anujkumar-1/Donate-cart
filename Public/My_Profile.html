@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User profile dashboard for donation platform">
+    <title>User Profile | Donation Platform</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="./styles/myProfile.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+  
+        <ul class="nav-links">
+          <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+          <li>
+            <a href="./Start_Campaign" class="highlighted">Start A Campaign</a>
+          </li>  
+          <li>
+            <a href="./Donation_Monthly" class="highlighted">Donate Monthly</a>
+          </li>  
+        </ul>
+  
+        <div class="nav-actions">
+          
+            <div class="user-dropdown">
+              <button class="user-btn">Join Us/Login</button>
+              <div class="dropdown-menu">
+                <a href="./Login">Login</a>
+                <a href="./Signup">Sign Up</a>
+              </div>
+            </div>
+  
+            <div class="dropdown">
+              <button class="dropdown-btn"></button>
+              <div class="dropdown-content">
+                <a href="./My_Profile">My Profile</a>
+                <a href="./My_Fundraiser.html">My Fundraiser</a>
+                <a href="./My_Transaction">My Transaction</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+  
+  
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+              <div class="hamburger-icon"></div>
+              <div class="hamburger-icon"></div>
+              <div class="hamburger-icon"></div>
+              <button type="button" id="menu-button">.</button>
+            </div>
+    
+          <!-- Slider Menu -->
+          <div class="slider-menu" id="sliderMenu">
+              <span class="close-btn" id="closeBtn">&times;</span>
+              <div class="menu-items">
+                  <a href="./Explore_Campaign">Explore Campaign</a>
+                  <a href="./Start_Campaign">Start a Campaign</a>
+                  <a href="./Donation_Monthly">Donate Monthly</a>
+                  <a href="./Login">Login/Sign Up</a>
+                  <a href="#">About</a>
+                  <a href="#">Contact</a>
+                  <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                  <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                  <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                  <a href="./Login" id="logout" class="slider-option">Logout</a>
+              </div>
+          </div>
+          
+        </div>
+  
+        <button class="hamburger">&#9776;</button>
+    </nav>
+
+    <div class="container">
+        <div class="profile-wrapper">
+            <!-- User Profile Section -->
+            <section class="section">
+                <h2 class="section-title">My Profile</h2>
+                <div class="profile-overview">
+                    <img class="profile-image" id="profileImage" src="" alt="Profile Image">
+                    <div class="profile-info">
+                        <div>
+                            <h3 class="profile-name" id="userName">
+                                <span></span>
+                                <i class="fas fa-pencil-alt edit-icon"></i>
+                            </h3>
+                            <p class="profile-email" id="userEmail"></p>
+                            <p class="profile-phone" id="userPhone"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- User Impact Section -->
+            <section class="section">
+                <h2 class="section-title">My Impact</h2>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAaCAYAAABGiCfwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJHSURBVHgBrZW9ctNAEMd3V8ZumMEFBQUzEcMD4IoJMEPkUFGlpSN5grikIBkBdq88AXJJRXrGRjATx3R+A+SZPIDomGDdsmckkI0inaz8mjtppf3f3X4cgiHO9isbrcZ7BOzIY5uBZxyzF0wHQxO7Bk2Eug+PHuANCLST/4ysfF6QV2QfTwYHemqBAffsnams6k6uEbGDFrzIFUrsW3efRuHF128EJXQfH++JkF3yWbvISIi95QglIKgO1AX/LLZcjCmC+kRGYiRZBTXhxEep2Kfzd19kCKEGFJNvJKaR2nFhUxjCEfTt0FhsdGYfM5zCRrScdGYkplFNSxdmCBVAxb3x5PW8slgQuJGKra6poGJ2R+f9kxVxqIiz7dpkxZ+hoND1jtaFNEbtKkt4EURb93eH4lC3r/WCjwj5+WjS/5C7CKjBs0fHh0zsJY4C5tZ+NkaVxRyn16bL27f0PM+RPlYL1E6a3kXgVQJwefMQERypMaVjimRq0CXgyrUxh4rg7pOj7znv21DSyaUFBSvPMfvZi/IqMYZrghU4zL/mcmN/JAU+xNNOVubpk2jANWIhthdk2cgYKoKehMBeaiHrrO0aF3Up0gMVNGcE1IFlrP/VYRr3yjvTsbKIPDmzH3+dIbJacEfRT38toRKUt5GYdqYUOyuJrKNOmJvaum0Fk8GbjcSMkWMl4oPxWT9IXzWkvXSL/lGML2XYB3OkFtlTzcbJWJp31mDUrpZdAtWeZJUj8bElbroG7ayAOJqBwtO4RcNgTSTlN2WS62EXU1+rAAAAAElFTkSuQmCC" alt="Donation Icon" class="impact-icon">
+                        <p class="impact-value" id="totalDonations">₹0</p>
+                        <label class="impact-label">Total Donations</label>
+                    </div>
+                    <div class="impact-card">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAcCAYAAAB2+A+pAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANKSURBVHgBxVbBUhNBEO2eiWAVHuIHWCz+gOEmYMkC3sWbN8MXEG9WESRW4B6+gPgH+QHIYhVgeTF8AbH8gS09qIRM2z3ZjZN1s0kQ9VVtZWcy0997pfr3EXAP4WTC90t5uLyziQjrCFiI5wmoRQQNBVQ/Ot375O5ZWdhe5vVFtubz0IumQyAKjKFG8H7vbSbx2sLrTVJU4dc8DEfIxirB2e6+//CVhzp3wA76GeuZH9oIxncd7hOvLpZ3ALECY8PUCBSfSj9CGEUOV7De/FA97xNHkdbgL0PIaerrfBDUQiXHZRSV4B+A88CT/JF3BVovj3tcNwGFWJIEzmlQRYLJwI4GvKcFvST0YTLH87oz8zTHBgoTbAJDnNGnu2/ise9X8ti5arqlNwpE6CnILp3EDmi7pIIgqIQ5gxPniBCHKfNS/BVU9Izf+9lOSO00I51pfe46B9TdsHtZcGAIcnxfLerdUx/IAnHIAhENG1zjodS4GnY6l5ceoI4G0ywU5VgoGmtL282kfQWqpcDgb091NVw7o41YdALBgshjcr1C/SKO1iGNpvgEBhFeTX05Vt1pJTo6cNy6Cw/csXETB6G+urg1Gw8jR0rRf57VegfJUuXkrFkBkeRgwwPJYbjWYuNJgbEigKq9slRu8vMRFQTuXtWZ2YnfrSK6xyz3P5XbjxzqIU2rpSNxmXgweLdh9HjRuA2JqKwuI4UDJSZzzv2reP5IyoRsZwLsYpE3FZGzEo11JrSiQWb96KR6VxtugZExc0vPm66ew15JtdnZQEkiGlU3pOftHSdIByJ2IychjdrY6tLWAZBix6ob7jrJVr6U+uHJr14rYqI63Qsy3IXOqsf2FNlWknQgYjdy5GbPLS+Qe0ZQHqIJYAxIvvCPfCwUskgFuTQDQs4bQcj56ELxzn5lKJCjfpm2R5IN6XYR4AcYhSW0DSCdNDVil1wijxMEsTvHTgzV4/5XCFF+FGkmcUwuCWdIVXjpLIwCfuN14mg26UjimFwiH+uziJQ/DulYxDG5bRocjataMWwipZRMFhAmgFtqiKou5SS9NSt7b4TYJRdlsgYI85OSCjRMiIvP747v33ucR8TnTPr9OqR/hCePyr4oFVwTPwGg55rNop4FEgAAAABJRU5ErkJggg==" alt="Campaigns Icon" class="impact-icon">
+                        <p class="impact-value" id="campaignsSupported">0</p>
+                        <label class="impact-label">Campaigns Supported</label>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="divider"></div>
+            
+            <!-- Donations Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">My Donations</h2>
+                    <div class="tabs">
+                        <div id="tab0" class="tab active">One-time</div>
+                        <div id="tab1" class="tab">Monthly</div>
+                    </div>
+                </div>
+                
+                <!-- 80G Certificate Section -->
+                <div class="certificate-section">
+                    <div class="certificate-header">
+                        <div class="certificate-title">
+                            <img src="/_next/static/images/80G-logo-12d13de2510e09b7f725134350a9e9f4.svg" alt="80G Certificate" class="certificate-logo">
+                            <span>Certificates</span>
+                        </div>
+                        <select class="certificate-select">
+                            <option value="">Select a Financial Year</option>
+                            <option value="2022" disabled>2021-2022</option>
+                            <option value="2023">2022-2023</option>
+                            <option value="2024">2023-2024</option>
+                            <option value="2025">2024-2025</option>
+                            <option value="2026">2025-2026</option>
+                        </select>
+                    </div>
+                    <div class="certificate-actions">
+                        <button type="button" class="btn btn-primary btn-disabled">Download 80G</button>
+                        <button type="button" class="btn btn-outline btn-disabled" title="You can download 10 BE documents for the chosen FY after 31 March 2024, and you'll have until 31 May 2024, to do so.">Download 10BE</button>
+                    </div>
+                    <p class="certificate-note">You can't download. Since You don't have donations in this financial year.</p>
+                </div>
+                
+                <!-- Empty Donations State -->
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                    <p class="empty-text">No donations made yet</p>
+                    <div class="divider"></div>
+                </div>
+            </section>
+           
+        </div>
+    </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+                        <img src="/_next/static/images/dkFooterLogo.svg" alt="Donatekart Logo" class="footer-logo">
+                        <p class="footer-about-text">We are India's most trusted and transparent crowdfunding platform, with a vision to create a social impact. Our unique model allows people from across the globe to donate towards raising funds for products required by NGOs and charities in India, which are then delivered to them by us.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/donatekart" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.youtube.com/channel/UCg6CmauAxn8kGKIjv8H8QSg" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Discover</h3>
+                        <a href="/about-us">About Us</a>
+                        <a href="/start-campaign">Start A Campaign</a>
+                        <a href="/monthlygiving">Donate Monthly</a>
+                        <a href="/explore-campaigns">Explore Campaigns</a>
+                        <a href="/life">Life</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Learn</h3>
+                        <a href="/how-it-works">How It Works</a>
+                        <a href="/faqs">FAQs</a>
+                        <a href="/gift-card">Gift Cards</a>
+                        <a href="/fundraiser/pricing">Pricing</a>
+                        <a href="https://www.donatekart.com/blog">Blogs</a>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Office Address, India</strong><br>
+                                    5th Main Rd, Sector 6, HSR Layout,<br>
+                                    Bangalore, Karnataka, 560102
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+918045685000">+91 8045685000</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@donatekart.com">info@donatekart.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-file-alt"></i>
+                                <a href="/contact-us">Send Us An Inquiry</a>
+                            </div>
+                        </div>
+                        <div class="payment-methods">
+                            <img src="/_next/static/images/securePayment.svg" alt="Secure Payment Methods">
+                            <img src="/_next/static/images/visa.svg" alt="Visa">
+                            <img src="/_next/static/images/mastercard.svg" alt="Mastercard">
+                            <img src="/_next/static/images/paytm.svg" alt="Paytm">
+                            <img src="/_next/static/images/amex.svg" alt="American Express">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <div>© 2025 Donatekart | All rights reserved.</div>
+                    <div class="copyright-links">
+                        <a href="/terms-of-use">Terms of Use</a>
+                        <a href="/privacy-policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+      <script src="./client/myProfile.js"></script>  
+</body>
+</html>

@@ -1,0 +1,768 @@
+:root {
+    --primary-color: #2e86de;
+    --secondary-color: #54a0ff;
+    --success-color: #26de81;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --light-color: #f5f6fa;
+    --dark-color: #2f3640;
+    --gray-color: #7f8c8d;
+    --light-gray: #dfe6e9;
+    --white: #ffffff;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* nav for mobile */
+
+        
+body {
+font-family: 'Google Sans', Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f8f9fa;
+color: #202124;
+}
+
+
+/* Navbar Styles */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+top: 0;
+width: 100%;
+background: #fff;
+/* padding: 15px 20px; */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+z-index: 1000;
+transition: all 0.3s ease;
+}
+
+/* Navbar Brand */
+.navbar-brand {
+font-size: 22px;
+font-weight: bold;
+color: #7B1113;
+text-decoration: none;
+font-family: "Oswald", sans-serif;
+}
+
+/* Nav Links */
+.nav-links {
+list-style: none;
+display: flex;
+gap: 20px;
+}
+
+.nav-links li {
+display: inline;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #333;
+font-weight: 600;
+padding: 8px 12px;
+transition: 0.3s;
+}
+
+.nav-links a:hover {
+color: #7B1113;
+}
+
+
+/* Dropdown Button */
+
+.dropdown{
+display: none;
+}
+
+.dropdown-btn {
+background-color: #e86a00;
+color: white;
+padding: 10px 20px;
+font-size: 16px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.dropdown-btn:hover {
+background-color: #45a049;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+display: none;
+position: absolute;
+right: 0px;
+background-color: #fff;
+min-width: 160px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+z-index: 1;
+}
+
+.dropdown-content a {
+color: #333;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {
+background-color: #f1f1f1;
+}
+
+/* Show Dropdown Menu */
+.show {
+display: block;
+}
+
+
+
+/* Highlighted Button */
+.highlighted {
+background-color: #7B1113;
+color: white !important;
+padding: 8px 15px;
+border-radius: 5px;
+}
+
+.highlighted:hover {
+background-color: #9b2b30;
+}
+
+/* Donate Button */
+.donate-btn {
+background: linear-gradient(45deg, #f12711, #f5af19);
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+color: white;
+cursor: pointer;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.donate-button{
+background: #ff5722;
+color: white;
+text-decoration: none;
+display: inline-block;
+border: none;
+padding: 10px 15px;
+font-size: 14px;
+font-weight: 400;
+border-radius: 5px;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.donate-btn:hover {
+opacity: 0.8;
+}
+
+/* User Dropdown */
+.user-dropdown {
+position: relative;
+display: inline-block;
+}
+
+.user-btn {
+background: none;
+border: none;
+cursor: pointer;
+font-weight: bold;
+padding: 8px 12px;
+}
+
+.dropdown-menu {
+display: none;
+position: absolute;
+right: 0;
+background: white;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+overflow: hidden;
+min-width: 150px;
+}
+
+.dropdown-menu a {
+display: block;
+padding: 10px;
+text-decoration: none;
+color: #333;
+transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+background: #7B1113;
+color: white;
+}
+
+/* Show dropdown on hover */
+.user-dropdown:hover .dropdown-menu {
+display: block;
+} 
+
+/* Hamburger Menu */
+.hamburger {
+display: none;
+font-size: 24px;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.nav-links {
+display: none;
+flex-direction: column;
+position: absolute;
+top: 60px;
+right: 0;
+background: white;
+width: 200px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links.active {
+display: flex;
+}
+
+.hamburger {
+display: block;
+}
+}
+
+
+
+/* Hamburger menu button for mobile*/
+.hamburger-menu {
+display: none;
+cursor: pointer;
+padding: 15px;
+position: fixed;
+top: 10px;
+right: 10px;
+z-index: 100;
+}
+
+.hamburger-icon {
+width: 25px;
+height: 3px;
+background-color: #333;
+margin: 5px 0;
+transition: 0.4s;
+}
+
+#menu-button{
+display: none;
+}
+/* Slider menu */
+.slider-menu {
+position: fixed;
+top: 0;
+right: -100%;
+width: 100%;
+height: 100%;
+background-color: #f8f8f8;
+transition: 0.5s;
+z-index: 99;
+padding: 20px;
+overflow-y: auto;
+}
+
+.slider-menu.active {
+right: 0;
+}
+
+.close-btn {
+position: absolute;
+top: 15px;
+right: 15px;
+font-size: 30px;
+cursor: pointer;
+color: #333;
+}
+
+.menu-items {
+margin-top: 60px;
+}
+
+.menu-items a {
+display: block;
+padding: 15px;
+text-decoration: none;
+color: #333;
+font-size: 18px;
+border-bottom: 1px solid #ddd;
+}
+
+.menu-items a:hover {
+background-color: #eee;
+}
+
+
+#profile, #fundraiser, #transaction, #logout{
+display: none;
+}
+
+
+
+/* Responsive adjustments */
+@media (min-width: 280px) and (max-width: 768px) {
+
+#menu-button{
+background-color: orangered;
+border-radius: 50%;
+width: 48px;
+height: 48px;
+color: #fff;
+border: none;
+margin-top: -10px
+}
+.campaign-item {
+flex-direction: column;
+gap: 12px;
+}
+
+.campaign-image-container {
+flex: 0 0 auto;
+width: 100%;
+height: 180px;
+}
+
+.promo-carousel-container{
+display: none;
+}
+.campaign-ticker-container{
+}
+.user-dropdown{
+display: none;
+}
+.hamburger{
+display: none;
+}
+.hamburger-menu {
+display: block;
+margin-top: -10px;
+margin-right: -10px;
+}
+.dropdown-btn{
+display: none;
+}
+
+
+}
+
+
+
+@media (min-width: 769px){
+.hamburger-menu {
+display: none;
+}
+}
+
+
+
+
+/* Campaign Box */
+.campaign-box {
+width: 1000px;
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+margin: 20px auto;
+border: 1px solid #e86a00;
+}
+
+/* Header */
+.campaign-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px;
+
+}
+
+.campaign-title {
+font-size: 18px;
+font-weight: bold;
+}
+
+.view-all {
+display: flex;
+align-items: center;
+cursor: pointer;
+font-size: 14px;
+gap: 8px;
+}
+
+.view-all .icon {
+width: 12px;
+height: 12px;
+transition: transform 0.3s ease;
+}
+
+/* Campaign Details Container */
+.campaign-details-container {
+position: fixed;
+top: -100%;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+max-width: 600px;
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+transition: top 0.5s ease;
+z-index: 1000;
+}
+
+.campaign-details-container.active {
+top: 20px;
+}
+
+.campaign-details-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px;
+color: #e86a00;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+border: 1px solid #e86a00;
+}
+
+.campaign-details-header h2 {
+font-size: 20px;
+margin: 0;
+}
+
+.close-icon {
+font-size: 24px;
+cursor: pointer;
+}
+
+.campaign-details-content {
+padding: 16px;
+max-height: 400px;
+overflow-y: auto;
+}
+
+.campaign-details-content ul {
+list-style-type: none;
+}
+
+.campaign-details-content li {
+padding: 12px 0;
+border-bottom: 1px solid #e0e0e0;
+color: #333;
+}
+
+.campaign-details-content li:last-child {
+border-bottom: none;
+}
+
+.close-btn-campaign {
+display: block;
+position: relative;
+width: 100%;
+padding: 12px;
+color: #e86a00;
+border: 1px solid #e86a00;
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;
+cursor: pointer;
+font-size: 16px;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.mobile-menu-btn {
+    position: absolute;
+    display: none;
+    font-size: 20px;
+    background: var(--light-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+
+
+/* Impact Section */
+.impact-section {
+    margin-bottom: 40px;
+}
+
+.impact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.impact-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.impact-card:hover {
+    transform: translateY(-5px);
+}
+
+.impact-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.impact-count {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.impact-label {
+    color: var(--gray-color);
+    font-size: 16px;
+}
+
+/* Campaigns Section */
+.campaigns-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.campaign-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.campaign-details {
+    padding: 20px;
+}
+
+.campaign-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.amount-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.amount-label {
+    color: var(--gray-color);
+}
+
+.amount {
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--light-gray);
+    border-radius: 4px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    width: 0%;
+    position: relative;
+}
+
+.progress.animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-btn i {
+    color: var(--white);
+    font-size: 30px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+   
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .campaigns-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    .welcome-title {
+        font-size: 18px;
+    }
+
+    .impact-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .campaigns-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-btn i {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Admin Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Campaign Admin</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li id="dashboard-li"><a href="/home" class="active sidebar-menu-a" id="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li id="approved-li"><a href="/approved" class="sidebar-menu-a" id="approved"><i class="fas fa-check-circle"></i> Approved</a></li>
+                <li id="rejected-li"><a href="/rejected" class="sidebar-menu-a" id="rejected"><i class="fas fa-times-circle"></i> Rejected</a></li>
+                <li id="logout-li"><a href="/logout" class="sidebar-menu-a" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        <!-- <div class="sb">
+            <button type="button" onclick="handleEvent(event)">Submit</button>
+        </div> -->
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1 id="heading">Pending Campaigns</h1>
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+                    <span>Admin User</span>
+                </div>
+            </div>
+
+            <div class="campaigns-container" id="campaignsContainer">
+                <!-- Campaign cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Campaign Detail Modal -->
+    <div class="modal" id="campaignModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Campaign Details</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be inserted here by JavaScript -->
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="./client/admin_dashboard.js"></script>
+</body>
+</html>

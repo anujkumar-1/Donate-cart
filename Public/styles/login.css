@@ -1,0 +1,176 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+}
+
+#message {
+    position: absolute;
+    top: 20px;
+    background-color: darkgreen;
+    color: white;
+}
+
+body {
+    background: rgb(224, 247, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.logo{
+    padding: 20px 0px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #7B1113;
+    text-decoration: none;
+}
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 450px;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: rgb(108, 99, 255);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.input-group:focus {
+    border-color: rgb(108, 99, 255);
+    outline: none;
+}
+
+input[type="email" i] {
+    padding: 10px;
+    width: 87%;
+    margin-left: 40px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="password" i] {
+    padding: 10px;
+    width: 80%;
+    margin-left: 70px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #999;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+}
+
+.input-group:focus + label,
+.input-group:not(:placeholder-shown) + label {
+    top: 5px;
+    font-size: 1rem;
+    color: rgb(108, 99, 255);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+.forgot-password {
+    display: block;
+    margin-bottom: 1rem;
+    color: #007bff;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ff7400;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff7300;
+}
+
+.register-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.register-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    /* transform: translateX(200%); */
+    transition: transform 0.3s ease-in-out;
+}
+
+.toast.show {
+    transform: translateX(-400px);
+}
+
+.toast-success {
+    background-color: #28a745;
+}
+
+.toast-error {
+    background-color: #dc3545;
+}
+
+.toast i {
+    margin-right: 10px;
+    font-size: 18px;
+}

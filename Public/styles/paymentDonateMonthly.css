@@ -1,0 +1,261 @@
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --text-color: #374151;
+    --border-color: #d1d5db;
+    --focus-color: #93c5fd;
+    --error-color: #ef4444;
+    --success-color: #10b981;
+    --bg-color: #f9fafb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding:10px;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: #6b7280;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    /* color: #111827; */
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: #fff;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #ff7400;
+    /* box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); */
+}
+
+.date-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-selector select {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.date-selector select:focus {
+    outline: none;
+    border-color: #ff7400;
+    /* box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); */
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: #999;
+    color: #6b7280;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    cursor: help;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.radio-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+
+input[type="radio"] {
+    transform: scale(1.3); /* 1.5 times the original size */
+    accent-color: rgb(246, 102, 5); /* Red color */
+
+
+}
+
+input[type="radio"]:checked {
+    accent-color: rgb(246, 102, 5); /* Red color */
+
+}
+
+.checkbox-group {
+    margin-top: 1.5rem;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-option input {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: #ff7400;
+    cursor: pointer;
+}
+
+.checkbox-option label {
+    cursor: pointer;
+}
+
+.terms {
+    /* margin-top: 2rem; */
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.terms a {
+    color: rgb(246, 102, 5);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, orange, red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+/* submit button animation */
+
+
+.loading-ring {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.button-container {
+    position: relative;
+
+.loading .loading-ring {
+    display: block;
+}
+
+.loading .btn-text {
+    visibility: hidden;
+}
+
+
+@media (max-width: 640px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="./styles/startCampaign.css">
+</head>
+<body>
+
+    
+    <nav class="navbar">
+        <a href="./Homepage" class="navbar-brand">YesDonate</a>
+
+        <ul class="nav-links">
+            <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+            <li><a href="./Start_Campaign" class="highlighted">Start A Campaign</a></li>
+            <li><a href="./Donation_Monthly" class="highlighted">Donate Monthly</a></li>
+
+        </ul>
+
+        <div class="nav-actions">
+
+            <div class="user-dropdown">
+                <button class="user-btn">Join Us/Login</button>
+                <div class="dropdown-menu">
+                  <a href="./Login">Login</a>
+                  <a href="./Signup">Sign Up</a>
+                </div>
+            </div>
+      
+
+            <div class="dropdown">
+                <button class="dropdown-btn">Anuj Kumar</button>
+                <div class="dropdown-content">
+                  <a href="#">My Profile</a>
+                  <a href="#">My Fundraiser</a>
+                  <a href="#">My Transaction</a>
+                  <a href="#">Logout</a>
+                </div>
+            </div>
+
+
+            <!-- Hamburger Menu Button -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <div class="hamburger-icon"></div>
+                <button type="button" id="menu-button"></button>
+            </div>
+  
+            <!-- Slider Menu -->
+            <div class="slider-menu" id="sliderMenu">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <div class="menu-items">
+                    <a href="./Explore_Campaign">Explore Campaign</a>
+                    <a href="./Start_Campaign">Start a Campaign</a>
+                    <a href="./Donation_Monthly">Donate Monthly</a>
+                    <a href="./Login">Login/Sign Up</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                    <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                    <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                    <a href="./Login" id="logout" class="slider-option">Logout</a>
+                </div>
+            </div>
+        
+        </div>
+
+        <button class="hamburger">&#9776;</button>
+    </nav>
+    <div class="errorMsg" id="errorMsg"></div>
+
+    <div class="form-container">
+        <form onsubmit="handleForm(event)">
+            <h3 class="form-header">Basic Details</h3>
+
+            <div class="cause_cardWrapper">
+                <!-- Medical Card -->
+                <div class="cause_causeWrapper cause_active" id="medcaid">Medical</div>
+        
+                <!-- Social Cause Dropdown -->
+                <div class="dk-select_selectWrapper" id="select_selectWrapper">
+                    <select id="socialCause" name="socialCause" class="dk-select_select cause_dropDown">
+                        <option value="-1" class="social-cause-text">Choose Social Cause</option>
+                        <option value="Animals" class="social-cause-text">Animals</option>
+                        <option value="Children" class="social-cause-text">Children</option>
+                        <option value="Elderly" class="social-cause-text">Elderly</option>
+                        <option value="Faith" class="social-cause-text">Faith</option>
+                        <option value="Disaster" class="social-cause-text">Disaster-Relief</option>
+                        <option value="Hunger" class="social-cause-text">Hunger</option>
+                        <option value="Education" class="social-cause-text">Education</option>
+                        <option value="Women" class="social-cause-text">Women</option>
+                        <option value="Transgender" class="social-cause-text">Transgender</option>
+                        <option value="Specially-Abled" class="social-cause-text">Specially-Abled</option>
+                        <option value="COVID19" class="social-cause-text">COVID19</option>
+                        <option value="Others" class="social-cause-text">Others</option>
+                    </select>
+                    
+                </div>
+            </div>
+        
+            
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Name</label> 
+                <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            
+            
+            <div class="form-group">
+                <label for="phone">Mobile Number (10 digits)</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter your mobile number">
+            </div>
+            
+
+            <div class="button-container">
+                <button class="submit-btn" onclick="submitForm()" type="submit">
+                    <span class="btn-text">Submit</span>
+                    <div class="loading-ring"></div>
+                </button>
+            </div>
+        </form>
+
+            
+        </div>
+
+                
+    </div>
+
+    <div class="video-container">
+        <div class="video-modal">
+            <p class="video-description">How to Start a Campaign at Donatekart?</p>
+        </div>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/kMT-q12kaKk?si=s66pqR4QgSXB-1E0&amp;modestbranding=1&amp;showinfo=0&amp;autohide=1&amp;rel=0"
+                title="How to Start a Campaign at Donatekart"
+                allow="autoplay; encrypted-media"
+                class="video-embed"
+            ></iframe>
+        </div>
+    </div>
+
+
+    <!-- OTP Verification Modal -->
+    <div id="otp-modal" class="otp-modal show">
+        <div class="otp-content">
+            <h3>Email Verification</h3>
+            <p>We have sent a 6-digit OTP to your email.</p>
+            
+            <input type="number" id="otp-input" placeholder="Enter OTP" min="100000" max="999999">
+            
+            <p id="timer-text">Time left: <span id="timer">15:00</span></p>
+            
+            <button onclick="verifyOTP()">Verify OTP</button>
+            <button id="resend-btn" onclick="resendOTP()" class="hidden">Resend OTP</button>
+            <button onclick="closeOTPModal()">Cancel</button>
+        </div>
+    </div>
+
+
+
+    <script src="./client/startCampaign.js"></script>    
+</body>
+</html>

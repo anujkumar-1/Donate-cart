@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions | Donatekart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/myTransaction.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="./Homepage" class="navbar-brand">YesDonate</a>
+          
+                <ul class="nav-links">
+                  <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+                  <li>
+                    <a href="./Start_Campaign" class="highlighted">Start A Campaign</a>
+                  </li>  
+                  <li>
+                    <a href="./Donation_Monthly" class="highlighted">Donate Monthly</a>
+                  </li>  
+                </ul>
+          
+                <div class="nav-actions">
+                  
+                    <div class="user-dropdown">
+                      <button class="user-btn">Join Us/Login</button>
+                      <div class="dropdown-menu">
+                        <a href="./Login">Login</a>
+                        <a href="./Signup">Sign Up</a>
+                      </div>
+                    </div>
+          
+                    <div class="dropdown">
+                      <button class="dropdown-btn"></button>
+                      <div class="dropdown-content">
+                        <a href="./My_Profile">My Profile</a>
+                        <a href="./My_Fundraiser.html">My Fundraiser</a>
+                        <a href="./My_Transaction">My Transaction</a>
+                        <a href="#">Logout</a>
+                      </div>
+                    </div>
+          
+          
+                    <!-- Hamburger Menu Button -->
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                      <div class="hamburger-icon"></div>
+                      <div class="hamburger-icon"></div>
+                      <div class="hamburger-icon"></div>
+                      <button type="button" id="menu-button">.</button>
+                    </div>
+            
+                  <!-- Slider Menu -->
+                  <div class="slider-menu" id="sliderMenu">
+                      <span class="close-btn" id="closeBtn">&times;</span>
+                      <div class="menu-items">
+                          <a href="./Explore_Campaign">Explore Campaign</a>
+                          <a href="./Start_Campaign">Start a Campaign</a>
+                          <a href="./Donation_Monthly">Donate Monthly</a>
+                          <a href="./Login">Login/Sign Up</a>
+                          <a href="#">About</a>
+                          <a href="#">Contact</a>
+                          <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                          <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                          <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                          <a href="./Login" id="logout" class="slider-option">Logout</a>
+                      </div>
+                  </div>
+                  
+                </div>
+          
+                <button class="hamburger">&#9776;</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <section class="page-title">
+                <h1>Transactions</h1>
+            </section>
+            
+            <section class="transactions-list">
+                <div class="table-responsive">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Date and Time</th>
+                                <th>Donation Amount</th>
+                                <th>Tip Amount</th>
+                                <th>Status</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <tr class="failed">
+                                <td>30-03-2025 7:28:48 PM</td>
+                                <td>INR 1000.00</td>
+                                <td>INR 0.00</td>
+                                <td><span class="status failed">Failed</span></td>
+                                <td>d9cdf79d83d3fad6711d</td>
+                            </tr>
+                            <tr class="in-progress">
+                                <td>30-03-2025 7:28:16 PM</td>
+                                <td>INR 1500.00</td>
+                                <td>INR 240.00</td>
+                                <td><span class="status in-progress" title="You initiated checkout but did not complete payment (Canceled from your side).">Abandoned Payment</span></td>
+                                <td>340fc4ee01e61149debe</td>
+                            </tr>
+                            <tr class="in-progress">
+                                <td>30-03-2025 5:16:23 AM</td>
+                                <td>INR 1500.00</td>
+                                <td>INR 240.00</td>
+                                <td><span class="status in-progress" title="You initiated checkout but did not complete payment (Canceled from your side).">Abandoned Payment</span></td>
+                                <td>1e5a2616e433e2923634</td>
+                            </tr>
+                            <tr class="failed">
+                                <td>30-03-2025 5:15:34 AM</td>
+                                <td>INR 1500.00</td>
+                                <td>INR 240.00</td>
+                                <td><span class="status failed">Failed</span></td>
+                                <td>38df6152c74744c4d2b7</td>
+                            </tr>
+                            <tr class="failed">
+                                <td>29-03-2025 11:24:30 PM</td>
+                                <td>INR 1000.00</td>
+                                <td>INR 0.00</td>
+                                <td><span class="status failed">Failed</span></td>
+                                <td>c84fb21f9897069bec4d</td>
+                            </tr>
+                            <tr class="in-progress">
+                                <td>29-03-2025 11:08:16 PM</td>
+                                <td>INR 2680.00</td>
+                                <td>INR 269.00</td>
+                                <td><span class="status in-progress" title="You initiated checkout but did not complete payment (Canceled from your side).">Abandoned Payment</span></td>
+                                <td>3fdbf697b6206fbfaf64</td>
+                            </tr>
+                            <tr class="in-progress">
+                                <td>29-03-2025 11:06:30 PM</td>
+                                <td>INR 2680.00</td>
+                                <td>INR 269.00</td>
+                                <td><span class="status in-progress" title="You initiated checkout but did not complete payment (Canceled from your side).">Abandoned Payment</span></td>
+                                <td>6fe5b4ae8b9f29ba0306</td>
+                            </tr>
+                            <tr class="failed">
+                                <td>09-03-2025 12:36:07 PM</td>
+                                <td>INR 3000.00</td>
+                                <td>INR 0.00</td>
+                                <td><span class="status failed">Failed</span></td>
+                                <td>1de3ee083f29354ca20c</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="/_next/static/images/dkFooterLogo.svg" alt="Donatekart Logo" class="footer-logo">
+                    <p class="footer-about-text">We are India's most trusted and transparent crowdfunding platform, with a vision to create a social impact. Our unique model allows people from across the globe to donate towards raising funds for products required by NGOs and charities in India, which are then delivered to them by us.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/donatekart" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/donatekart/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCg6CmauAxn8kGKIjv8H8QSg" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Discover</h3>
+                    <a href="/about-us">About Us</a>
+                    <a href="/start-campaign">Start A Campaign</a>
+                    <a href="/monthlygiving">Donate Monthly</a>
+                    <a href="/explore-campaigns">Explore Campaigns</a>
+                    <a href="/life">Life</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Learn</h3>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/faqs">FAQs</a>
+                    <a href="/gift-card">Gift Cards</a>
+                    <a href="/fundraiser/pricing">Pricing</a>
+                    <a href="https://www.donatekart.com/blog">Blogs</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Office Address, India</strong><br>
+                                5th Main Rd, Sector 6, HSR Layout,<br>
+                                Bangalore, Karnataka, 560102
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+918045685000">+91 8045685000</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@donatekart.com">info@donatekart.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-file-alt"></i>
+                            <a href="/contact-us">Send Us An Inquiry</a>
+                        </div>
+                    </div>
+                    <div class="payment-methods">
+                        <img src="/_next/static/images/securePayment.svg" alt="Secure Payment Methods">
+                        <img src="/_next/static/images/visa.svg" alt="Visa">
+                        <img src="/_next/static/images/mastercard.svg" alt="Mastercard">
+                        <img src="/_next/static/images/paytm.svg" alt="Paytm">
+                        <img src="/_next/static/images/amex.svg" alt="American Express">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <div>© 2025 Donatekart | All rights reserved.</div>
+                <div class="copyright-links">
+                    <a href="/terms-of-use">Terms of Use</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://api.whatsapp.com/send?phone=919972349230&text=https://www.donatekart.com/vieworders%0A%20I'm%20interested%20to%20know%20more%20about%20this%20campaign.%20Can%20you%20help?" class="whatsapp-chat">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="./client/myTransaction.js"></script>
+</body>
+</html>

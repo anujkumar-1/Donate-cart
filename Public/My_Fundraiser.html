@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fundraisers | Donatekart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/myFundraiser.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="./Homepage" class="navbar-brand">YesDonate</a>
+          
+                <ul class="nav-links">
+                  <li><a href="./Explore_Campaign">Explore Campaigns</a></li>
+                  <li>
+                    <a href="./Start_Campaign" class="highlighted">Start A Campaign</a>
+                  </li>  
+                  <li>
+                    <a href="./Donation_Monthly" class="highlighted">Donate Monthly</a>
+                  </li>  
+                </ul>
+          
+                <div class="nav-actions">
+                  
+                    <div class="user-dropdown">
+                      <button class="user-btn">Join Us/Login</button>
+                      <div class="dropdown-menu">
+                        <a href="./Login">Login</a>
+                        <a href="./Signup">Sign Up</a>
+                      </div>
+                    </div>
+          
+                    <div class="dropdown">
+                      <button class="dropdown-btn"></button>
+                      <div class="dropdown-content">
+                        <a href="./My_Profile">My Profile</a>
+                        <a href="./My_Fundraiser.html">My Fundraiser</a>
+                        <a href="./My_Transaction">My Transaction</a>
+                        <a href="#">Logout</a>
+                      </div>
+                    </div>
+          
+          
+                    <!-- Hamburger Menu Button -->
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                      <div class="hamburger-icon"></div>
+                      <div class="hamburger-icon"></div>
+                      <div class="hamburger-icon"></div>
+                      <button type="button" id="menu-button">.</button>
+                    </div>
+            
+                  <!-- Slider Menu -->
+                  <div class="slider-menu" id="sliderMenu">
+                      <span class="close-btn" id="closeBtn">&times;</span>
+                      <div class="menu-items">
+                          <a href="./Explore_Campaign">Explore Campaign</a>
+                          <a href="./Start_Campaign">Start a Campaign</a>
+                          <a href="./Donation_Monthly">Donate Monthly</a>
+                          <a href="./Login">Login/Sign Up</a>
+                          <a href="#">About</a>
+                          <a href="#">Contact</a>
+                          <a href="./My_Profile"  id="profile" class="slider-option">My Profile</a>
+                          <a href="./My_Fundraiser" id="fundraiser" class="slider-option">My Fundraiser</a>
+                          <a href="./My_Transaction"  id="transaction" class="slider-option">My Transaction</a>
+                          <a href="./Login" id="logout" class="slider-option">Logout</a>
+                      </div>
+                  </div>
+                  
+                </div>
+          
+                <button class="hamburger">&#9776;</button>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <div class="section-title">
+                <h2>My Fundraisers</h2>
+            </div>
+            
+            <!-- Main Content -->
+
+            <div class="campaign-box">
+                <div class="campaign-header">
+                <p class="campaign-title">Campaign Content</p>
+                <span class="view-all" id="viewAllBtn">
+                    View All
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+                    </svg>
+                </span>
+                </div>
+            </div>
+
+            <!-- Campaign Details Container -->
+            <div class="campaign-details-container" id="campaignDetailsContainer">
+                <div class="campaign-details-header">
+                <span class="close-icon" id="closeIcon">×</span>
+                <h2>Campaign Details</h2>
+                </div>
+                <div class="campaign-details-content">
+                <ul>
+                    <li>Campaign 1: Rejected due to policy violation.</li>
+                    <li>Campaign 2: Rejected due to incomplete information.</li>
+                    <li>Campaign 3: Rejected due to inappropriate content.</li>
+                    <li>Campaign 4: Rejected due to missing documents.</li>
+                    <li>Campaign 5: Rejected due to expired license.</li>
+                </ul>
+                </div>
+                <button class="close-btn-campaign" id="closeBtn">Close</button>
+            </div>
+
+
+
+            <!-- Impact Section -->
+            <section class="impact-section">
+                <div class="section-title">
+                    <h2>Total Impact</h2>
+                </div>
+                <div class="impact-cards">
+                    <div class="impact-card">
+                        <img src="https://images.donatekart.com/static/donation.svg" alt="Donations">
+                        <p class="impact-count" id="total-donation">₹0</p>
+                        <label class="impact-label">Total Donations</label>
+                    </div>
+                    <div class="impact-card">
+                        <img src="https://images.donatekart.com/static/donors.svg" alt="Donors">
+                        <p class="impact-count" id="total-donors">0</p>
+                        <label class="impact-label">Total Donors</label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campaigns Section -->
+            <div class="section-title">
+                <h2>Your Campaigns</h2>
+            </div>
+            <div class="campaigns-wrapper" id="campaigns-wrapper">
+    
+            </div>
+        </div>
+    </main>
+
+    <!-- WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send?phone=919972349230&text=https://www.donatekart.com/my-fundraisers%0A%20I'm%20interested%20to%20know%20more%20about%20this%20campaign.%20Can%20you%20help?" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="./client/myFundraiser.js"></script>
+</body>
+</html>
